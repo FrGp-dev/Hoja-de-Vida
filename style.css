@@ -21,7 +21,8 @@ body {
     background: #fff;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     border-radius: 8px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -32,20 +33,20 @@ body {
     border-bottom: 4px solid var(--accent);
 }
 
-.header h1 { margin: 0; font-size: 2.2rem; font-weight: 700; }
-.tagline { font-size: 1.1rem; color: #93c5fd; margin-top: 5px; font-weight: 500; }
+.header h1 { margin: 0; font-size: 2.2rem; }
+.tagline { font-size: 1.1rem; color: #93c5fd; margin-top: 5px; }
 
-/* Layout de Columnas */
+/* Layout */
 .main-layout {
     display: flex;
-    min-height: 800px;
+    flex: 1;
 }
 
-/* Sidebar (Columna Izquierda) */
+/* Sidebar */
 .sidebar {
-    width: 300px;
+    width: 280px;
     background: var(--sidebar-bg);
-    padding: 30px 25px;
+    padding: 30px 20px;
     border-right: 1px solid var(--border);
     flex-shrink: 0;
 }
@@ -63,106 +64,92 @@ body {
 
 .sidebar-section { margin-bottom: 30px; }
 
-/* Contacto e Iconos Alineados */
 .contact-item {
     display: flex;
-    align-items: flex-start; /* Alinea el icono arriba si el texto hace wrap */
-    gap: 12px;
-    margin-bottom: 15px;
-    font-size: 0.88rem;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    overflow: hidden;
 }
 
-.icon {
-    width: 18px;
-    text-align: center;
-    flex-shrink: 0; /* Impide que el icono se encoja */
-}
+.icon { flex-shrink: 0; width: 18px; text-align: center; }
 
-.break-word {
-    word-break: break-all; /* SOLUCIÓN: El correo no se sale */
+.ellipsis-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* PUNTOS SUSPENSIVOS */
+    display: block;
     text-decoration: none;
     color: var(--text-dark);
 }
 
-/* Habilidades y Educación en Sidebar */
-.skill-group { margin-bottom: 12px; }
-.skill-group strong { font-size: 0.9rem; display: block; color: var(--primary); }
-.skill-group p { margin: 2px 0; font-size: 0.85rem; color: var(--text-light); }
-
-.mini-list { padding-left: 15px; margin: 5px 0; font-size: 0.8rem; color: var(--text-light); }
-
-/* Contenido Principal (Columna Derecha) */
-.content-main {
-    padding: 35px 45px;
-    flex-grow: 1;
+/* Educación Sidebar */
+.edu-univ { font-weight: 700; font-size: 0.9rem; margin: 0; }
+.edu-degree { font-size: 0.85rem; margin: 2px 0; color: var(--accent); }
+.edu-details { 
+    padding-left: 15px; 
+    margin: 10px 0 0 0; 
+    font-size: 0.78rem; 
+    color: var(--text-light);
+    list-style-type: circle;
 }
+.edu-details li { margin-bottom: 5px; line-height: 1.3; }
 
+/* Main Content */
+.content-main { padding: 35px 40px; flex-grow: 1; }
 .section-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--primary);
     text-transform: uppercase;
     border-left: 4px solid var(--accent);
     padding-left: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: 700;
 }
 
-.profile-content p { margin-bottom: 12px; font-size: 0.95rem; }
+.profile-content p { font-size: 0.92rem; margin-bottom: 10px; text-align: justify; }
 
-/* Items de Experiencia */
-.item { margin-bottom: 25px; }
+/* Items */
+.item { margin-bottom: 20px; }
 .item-header { display: flex; justify-content: space-between; align-items: baseline; }
-.date { font-weight: 600; color: var(--text-light); font-size: 0.85rem; }
-.sub-role { color: var(--accent); font-weight: 600; margin: 4px 0; font-size: 0.95rem; }
+.date { font-weight: 600; color: var(--text-light); font-size: 0.8rem; }
+.sub-role { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin: 2px 0; }
+.custom-list { padding-left: 20px; margin-top: 5px; font-size: 0.88rem; }
 
-.custom-list { padding-left: 20px; margin-top: 8px; }
-.custom-list li { margin-bottom: 5px; font-size: 0.9rem; color: var(--text-main); }
+/* Proyectos */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.project-card { border: 1px solid var(--border); padding: 12px; border-radius: 6px; }
+.project-card h3 { font-size: 0.9rem; margin: 0 0 5px 0; }
+.project-card p { font-size: 0.8rem; margin: 0; color: var(--text-light); }
 
-/* Cuadrícula de Proyectos */
-.projects-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.project-card {
+/* PIE DE PÁGINA CENTRADO */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    color: var(--text-light);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
     background: #fff;
-    border: 1px solid var(--border);
-    padding: 15px;
-    border-radius: 6px;
 }
 
-.project-card h3 { font-size: 0.95rem; margin: 0 0 8px 0; color: var(--primary); }
-.project-card p { font-size: 0.85rem; margin: 0; color: var(--text-light); line-height: 1.3; }
-
-/* Botón Flotante */
 .btn-floating {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     background: var(--accent);
     color: white;
     border: none;
-    padding: 12px 20px;
+    padding: 10px 20px;
     border-radius: 50px;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3);
-    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Media Queries */
-@media (max-width: 850px) {
+@media (max-width: 800px) {
     .main-layout { flex-direction: column; }
-    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+    .sidebar { width: 100%; border-right: none; }
     .projects-grid { grid-template-columns: 1fr; }
 }
-
-@media print {
-    .container { margin: 0; box-shadow: none; max-width: 100%; }
-    .btn-floating { display: none; }
-    .main-layout { display: flex; flex-direction: row; }
-    .sidebar { width: 250px; }
-}
-
-footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.8rem; border-top: 1px solid var(--border); }
