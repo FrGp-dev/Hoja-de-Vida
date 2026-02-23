@@ -3,86 +3,122 @@
     --accent: #2563eb;
     --text-dark: #1e293b;
     --text-light: #64748b;
-    --bg-page: #f8fafc;
-    --bg-card: #ffffff;
-    --sidebar-bg: #f1f5f9;
+    --sidebar-bg: #f8fafc;
+    --border: #e2e8f0;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-page);
+    background-color: #f1f5f9;
     color: var(--text-dark);
     margin: 0;
-    line-height: 1.4; /* Reducido para ahorrar espacio */
+    line-height: 1.5;
 }
 
 .container {
-    max-width: 1000px; /* Un poco más ancho para las columnas */
+    max-width: 1050px;
     margin: 20px auto;
-    background: var(--bg-card);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     border-radius: 8px;
     overflow: hidden;
 }
 
-/* Header más compacto */
+/* Header */
 .header {
     background-color: var(--primary);
     color: white;
-    padding: 30px;
-    text-align: center;
+    padding: 35px 40px;
+    border-bottom: 4px solid var(--accent);
 }
 
-.header h1 { margin: 0; font-size: 2rem; }
-.tagline { font-size: 1.1rem; color: var(--accent); margin: 5px 0; }
+.header h1 { margin: 0; font-size: 2.2rem; font-weight: 700; }
+.tagline { font-size: 1.1rem; color: #93c5fd; margin-top: 5px; font-weight: 500; }
 
-/* Layout de dos columnas */
+/* Layout de Columnas */
 .main-layout {
-    display: grid;
-    grid-template-columns: 280px 1fr; /* Sidebar fija, contenido flexible */
+    display: flex;
+    min-height: 800px;
 }
 
-/* Columna Lateral */
+/* Sidebar (Columna Izquierda) */
 .sidebar {
-    background-color: var(--sidebar-bg);
-    padding: 30px 20px;
-    border-right: 1px solid #e2e8f0;
+    width: 300px;
+    background: var(--sidebar-bg);
+    padding: 30px 25px;
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
 }
 
-.sidebar-section { margin-bottom: 25px; }
 .sidebar-title {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
     color: var(--accent);
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #e2e8f0;
-}
-
-.contact-vertical p, .skill-category-v p, .edu-item p {
-    font-size: 0.85rem;
-    margin: 4px 0;
-}
-
-.edu-item { margin-bottom: 12px; }
-
-/* Columna Principal */
-.content-main {
-    padding: 30px 40px;
-}
-
-.section { margin-bottom: 30px; }
-.section-title {
-    font-size: 1.1rem;
-    color: var(--primary);
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 5px;
+    letter-spacing: 1.2px;
     margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 5px;
 }
 
-.perfil-text { font-size: 0.95rem; }
+.sidebar-section { margin-bottom: 30px; }
 
-/* Proyectos en mini-grid para ahorrar verticalidad */
+/* Contacto e Iconos Alineados */
+.contact-item {
+    display: flex;
+    align-items: flex-start; /* Alinea el icono arriba si el texto hace wrap */
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 0.88rem;
+}
+
+.icon {
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0; /* Impide que el icono se encoja */
+}
+
+.break-word {
+    word-break: break-all; /* SOLUCIÓN: El correo no se sale */
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+/* Habilidades y Educación en Sidebar */
+.skill-group { margin-bottom: 12px; }
+.skill-group strong { font-size: 0.9rem; display: block; color: var(--primary); }
+.skill-group p { margin: 2px 0; font-size: 0.85rem; color: var(--text-light); }
+
+.mini-list { padding-left: 15px; margin: 5px 0; font-size: 0.8rem; color: var(--text-light); }
+
+/* Contenido Principal (Columna Derecha) */
+.content-main {
+    padding: 35px 45px;
+    flex-grow: 1;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    border-left: 4px solid var(--accent);
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.profile-content p { margin-bottom: 12px; font-size: 0.95rem; }
+
+/* Items de Experiencia */
+.item { margin-bottom: 25px; }
+.item-header { display: flex; justify-content: space-between; align-items: baseline; }
+.date { font-weight: 600; color: var(--text-light); font-size: 0.85rem; }
+.sub-role { color: var(--accent); font-weight: 600; margin: 4px 0; font-size: 0.95rem; }
+
+.custom-list { padding-left: 20px; margin-top: 8px; }
+.custom-list li { margin-bottom: 5px; font-size: 0.9rem; color: var(--text-main); }
+
+/* Cuadrícula de Proyectos */
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,32 +126,43 @@ body {
 }
 
 .project-card {
-    background: #f8fafc;
-    padding: 12px;
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 15px;
     border-radius: 6px;
-    border-left: 3px solid var(--accent);
 }
 
-.project-card h3 { font-size: 0.95rem; margin-top: 0; }
-.project-card p { font-size: 0.85rem; margin-bottom: 0; }
+.project-card h3 { font-size: 0.95rem; margin: 0 0 8px 0; color: var(--primary); }
+.project-card p { font-size: 0.85rem; margin: 0; color: var(--text-light); line-height: 1.3; }
 
-.github-icon-dark {
-    width: 16px;
-    vertical-align: middle;
-    margin-right: 5px;
+/* Botón Flotante */
+.btn-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(37, 99, 235, 0.3);
+    z-index: 1000;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-    .main-layout { grid-template-columns: 1fr; }
-    .sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; }
+/* Media Queries */
+@media (max-width: 850px) {
+    .main-layout { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
     .projects-grid { grid-template-columns: 1fr; }
 }
 
-/* Ajustes de impresión para que quepa en 1 hoja */
 @media print {
-    .container { margin: 0; border-radius: 0; }
-    .main-layout { grid-template-columns: 250px 1fr; }
+    .container { margin: 0; box-shadow: none; max-width: 100%; }
     .btn-floating { display: none; }
-    body { font-size: 10pt; }
+    .main-layout { display: flex; flex-direction: row; }
+    .sidebar { width: 250px; }
 }
+
+footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.8rem; border-top: 1px solid var(--border); }
