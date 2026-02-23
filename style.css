@@ -1,0 +1,119 @@
+:root {
+    --primary: #1e293b;
+    --accent: #3b82f6;
+    --text-main: #334155;
+    --text-light: #64748b;
+    --bg: #f1f5f9;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: var(--white);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 50px 40px;
+    text-align: center;
+}
+
+.header h1 { margin: 0; font-size: 2.4rem; font-weight: 700; }
+.tagline { color: var(--accent); font-size: 1.2rem; margin: 10px 0; font-weight: 600; }
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-info a { color: white; text-decoration: none; border-bottom: 1px solid var(--accent); }
+
+.github-icon {
+    width: 18px;
+    filter: brightness(0) invert(1);
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Main */
+main { padding: 40px; }
+.section { margin-bottom: 30px; }
+.section-title {
+    font-size: 1.1rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+    padding-right: 30px;
+    margin-bottom: 15px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.item { margin-bottom: 15px; }
+.item-header { display: flex; justify-content: space-between; font-weight: 600; color: var(--primary); }
+.date { color: var(--text-light); font-size: 0.85rem; }
+.sub-role { color: var(--accent); font-weight: 600; margin: 2px 0; }
+
+/* Botón Flotante */
+.btn-floating {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: transform 0.2s, background 0.2s;
+    z-index: 1000;
+}
+
+.btn-floating:hover {
+    transform: scale(1.05);
+    background-color: #2563eb;
+}
+
+/* CONFIGURACIÓN PARA PDF (IMPRESIÓN) */
+@media print {
+    body { background: white; }
+    .container { margin: 0; box-shadow: none; max-width: 100%; }
+    .btn-floating { display: none !important; } /* Ocultar botón en PDF */
+    .header { background: #f8fafc !important; color: black !important; padding: 20px; }
+    .header h1 { color: #1e293b; }
+    .contact-info a { color: #1e293b; border-bottom: 1px solid #1e293b; }
+    .github-icon { filter: none; } /* Icono original en PDF */
+    .section-title { border-bottom: 2px solid #1e293b; }
+}
+
+footer { text-align: center; padding: 20px; color: var(--text-light); font-size: 0.8rem; }
