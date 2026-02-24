@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('downloadPDF');
 
@@ -14,4 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     console.log("Sistema de descarga de archivo PDF listo.");
+});
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadBtn = document.getElementById('downloadPDF');
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            // Abre el diálogo de impresión/guardado PDF del sistema
+            window.print();
+        });
+    }
 });
